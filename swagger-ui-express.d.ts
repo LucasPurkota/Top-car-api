@@ -1,0 +1,1 @@
+module 'swagger-ui-express'
