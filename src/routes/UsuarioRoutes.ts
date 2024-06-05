@@ -7,7 +7,7 @@ const controller = new UsuarioController()
 router.post("/create", async (req: Request, res: Response) => {
   const response = await controller.create(req.body)
 
-  return res.status(200).send(response)
+  return res.status(response === "OK" ? 200 : 400).send(response)
 })
 
 export default router

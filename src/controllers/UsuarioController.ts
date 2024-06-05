@@ -1,6 +1,7 @@
 import { Body, Delete, Get, Patch, Post, Route } from "tsoa"
 // import { JsonObject } from "swagger-ui-express"
 import { UsuarioModel } from "../models/Usuario"
+import { Int32 } from "mongodb"
 
 @Route("api/usuario")
 export default class UsuarioController {
@@ -16,7 +17,6 @@ export default class UsuarioController {
       cidade: body.cidade,
       senha: body.senha,
     })
-
     try {
       await usuario.save()
       return "OK"
@@ -26,28 +26,27 @@ export default class UsuarioController {
   }
 
   @Patch("/update")
-  public async update(@Body() body: { cpf: string, nome: string, email: string, celular: string, 
+  public async update(@Body() body: { id: Int32, cpf: string, nome: string, email: string, celular: string, 
     dataNascimento: Date, cidade: string, senha: string }): Promise<any> {
-    const usuario = new UsuarioModel({
+     try {
+      const result = await UsuarioModel.findByIdAndUpdate(body.id, { 
       cpf: body.cpf,
-      nome: body.nome,
+      nome: body.nome, 
       email: body.email,
       celular: body.celular,
       dataNascimento: body.dataNascimento,
       cidade: body.cidade,
-      senha: body.senha
-    })  
-
-    try {
-      await usuario.save()
-      return "OK"
-    } catch (error) {
-      return JSON.stringify(error)
+      senha: body.senha,
+    })
+      return { result: result }
+    } catch (error: any) {
+      return {error: error.message,} 
     }
   }
 
   @Get("/getUser")
-  public async getUser(@Body() body: { cpf: string, nome: string, email: string, celular: string, dataNascimento: Date, cidade: string, senha: string }): Promise<any> {
+  public async getUser(@Body() body: { cpf: string, nome: string, email: string, celular: string, 
+    dataNascimento: Date, cidade: string, senha: string }): Promise<any> {
     const usuario = new UsuarioModel({
       cpf: body.cpf,
       nome: body.nome,
