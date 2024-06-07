@@ -2,7 +2,7 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import UsuarioRoutes from "./routes/UsuarioRoutes"
+// import usuarioRoutes from "./routes/usuarioRoutes"
 
 import swaggerUi from "swagger-ui-express"
 import { connect } from "./service/database"
@@ -17,7 +17,7 @@ const databaseUrl = process.env.DATABASE_URL || ""
 connect(databaseUrl)
 
 const corsOptions = { 
-  origin : ['http://localhost:3000'], 
+  origin : ['http://localhost:4000'], 
 } 
 
 app.use(cors(corsOptions)) 
@@ -33,7 +33,7 @@ app.use(
   })
 )
 
-app.use("/api/usuario", UsuarioRoutes)
+// app.use("/api/usuario/", usuarioRoutes)
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
