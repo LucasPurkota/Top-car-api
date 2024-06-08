@@ -10,16 +10,16 @@ router.post("/create", async (req: Request, res: Response) => {
   return res.status(response === "OK" ? 200 : 400).send(response)
 })
 
-router.patch("/update", async (req: Request, res: Response) => {
-  const response = await controller.update(req.body)
+// router.patch("/update", async (req: Request, res: Response) => {
+//   const response = await controller.update(req.body)
 
-  return res.status(response.error ? 400 : 200).send(response)
-})
+//   return res.status(response.error ? 400 : 200).send(response)
+// })
 
-router.delete("/delete/:id", async (req: Request, res: Response) => {
-  const response = await controller.delete(req.params.id)
+// router.delete("/delete/:id", async (req: Request, res: Response) => {
+//   const response = await controller.delete(req.params.id)
 
-  return res.status(response.error ? 400 : 200).send(response)
-})
+//   return res.status(response.error ? 400 : 200).send(response)
+// })
 
 export default router
