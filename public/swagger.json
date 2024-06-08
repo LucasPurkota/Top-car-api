@@ -6,26 +6,22 @@
 		"parameters": {},
 		"requestBodies": {},
 		"responses": {},
-		"schemas": {
-			"JsonObject": {
-				"properties": {},
-				"type": "object",
-				"additionalProperties": {}
-			}
-		},
+		"schemas": {},
 		"securitySchemes": {}
 	},
 	"info": {
-		"title": "hello-express-mongo",
+		"title": "top-car-api",
 		"version": "1.0.0",
-		"description": "basic API using Node and Express",
+		"description": "api top-car",
 		"license": {
 			"name": "MIT"
 		},
-		"contact": {}
+		"contact": {
+			"name": "Lucas Purkota"
+		}
 	},
 	"paths": {
-		"/api/icecream/create": {
+		"/api/usuario/create": {
 			"post": {
 				"operationId": "Create",
 				"responses": {
@@ -33,9 +29,7 @@
 						"description": "Ok",
 						"content": {
 							"application/json": {
-								"schema": {
-									"type": "string"
-								}
+								"schema": {}
 							}
 						}
 					}
@@ -48,199 +42,37 @@
 						"application/json": {
 							"schema": {
 								"properties": {
-									"name": {
-										"type": "string"
-									}
-								},
-								"required": [
-									"name"
-								],
-								"type": "object"
-							}
-						}
-					}
-				}
-			}
-		},
-		"/api/icecream/getAll": {
-			"get": {
-				"operationId": "All",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/JsonObject"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/api/icecream/update": {
-			"patch": {
-				"operationId": "Update",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/JsonObject"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": [],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"properties": {
-									"name": {
+									"senha": {
 										"type": "string"
 									},
-									"id": {
+									"cidade": {
 										"type": "string"
-									}
-								},
-								"required": [
-									"name",
-									"id"
-								],
-								"type": "object"
-							}
-						}
-					}
-				}
-			}
-		},
-		"/api/icecream/delete/{id}": {
-			"delete": {
-				"operationId": "Delete",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/JsonObject"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		},
-		"/api/icecream/getToppings": {
-			"get": {
-				"operationId": "AllToppings",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/JsonObject"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/api/icecream/fields": {
-			"get": {
-				"operationId": "Fields",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/JsonObject"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/api/icecream/query": {
-			"get": {
-				"operationId": "Query",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/JsonObject"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/api/drink/create": {
-			"post": {
-				"operationId": "Create",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/JsonObject"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": [],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"properties": {
-									"size": {
-										"type": "number",
-										"format": "double"
 									},
-									"name": {
+									"dataNascimento": {
+										"type": "string",
+										"format": "date-time"
+									},
+									"celular": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									},
+									"nome": {
+										"type": "string"
+									},
+									"cpf": {
 										"type": "string"
 									}
 								},
 								"required": [
-									"size",
-									"name"
+									"senha",
+									"cidade",
+									"dataNascimento",
+									"celular",
+									"email",
+									"nome",
+									"cpf"
 								],
 								"type": "object"
 							}

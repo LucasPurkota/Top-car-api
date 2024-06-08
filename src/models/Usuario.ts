@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const usuarioSchema = new mongoose.Schema({
   id: {
     require: true,
-    type: Int32
+    type: Number
   },
   cpf: {
     require: true,
