@@ -1,10 +1,9 @@
-import { Int32 } from "mongodb";
 import mongoose from "mongoose";
 
 const usuarioSchema = new mongoose.Schema({
   id: {
     require: true,
-    type: Number
+    type: String
   },
   cpf: {
     require: true,
