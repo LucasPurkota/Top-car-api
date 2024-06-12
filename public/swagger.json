@@ -80,6 +80,113 @@
 					}
 				}
 			}
+		},
+		"/api/usuario/update": {
+			"patch": {
+				"operationId": "Update",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"senha": {
+										"type": "string"
+									},
+									"cidade": {
+										"type": "string"
+									},
+									"dataNascimento": {
+										"type": "string",
+										"format": "date-time"
+									},
+									"celular": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									},
+									"nome": {
+										"type": "string"
+									},
+									"cpf": {
+										"type": "string"
+									},
+									"id": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"senha",
+									"cidade",
+									"dataNascimento",
+									"celular",
+									"email",
+									"nome",
+									"cpf",
+									"id"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/usuario/getUserId": {
+			"get": {
+				"operationId": "GetId",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/api/usuario/delete/{id}": {
+			"delete": {
+				"operationId": "Delete",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
 		}
 	},
 	"servers": [
