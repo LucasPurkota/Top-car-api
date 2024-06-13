@@ -145,23 +145,6 @@
 				}
 			}
 		},
-		"/api/usuario/getUserId": {
-			"get": {
-				"operationId": "GetId",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": []
-			}
-		},
 		"/api/usuario/delete/{id}": {
 			"delete": {
 				"operationId": "Delete",
@@ -186,6 +169,23 @@
 						}
 					}
 				]
+			}
+		},
+		"/api/usuario/getEmail": {
+			"get": {
+				"operationId": "GetEmail",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
 			}
 		}
 	},
