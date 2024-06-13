@@ -1,5 +1,4 @@
 import { Body, Delete, Get, Patch, Post, Route } from "tsoa"
-// import { JsonObject } from "swagger-ui-express"
 import { UsuarioModel } from "../models/Usuario"
 
 @Route("api/usuario")
@@ -43,12 +42,11 @@ export default class UsuarioController {
     }
   }
 
-  @Get("/getUserId")
-  public async getId(): Promise<any> {
+  @Delete("/delete/:id")
+  public async delete(id: string): Promise<any> {
     try {
-      const data = await UsuarioModel.find().select("cpf")
-
-      return data
+      const usuario = await UsuarioModel.findByIdAndDelete(id)
+      return { usuario: usuario }
     } catch (error: any) {
       return {
         error: error.message,
@@ -56,12 +54,11 @@ export default class UsuarioController {
     }
   }
 
-
-  @Delete("/delete/:id")
-  public async delete(id: string): Promise<any> {
+  @Get("/getEmail")
+  public async getEmail(): Promise<any> {
     try {
-      const usuario = await UsuarioModel.findByIdAndDelete(id)
-      return { usuario: usuario }
+      const data = await UsuarioModel.find({email: 'lucaspurkota@gmail.com'})
+      return data
     } catch (error: any) {
       return {
         error: error.message,
