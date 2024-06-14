@@ -54,11 +54,17 @@ export default class UsuarioController {
     }
   }
 
-  @Get("/getEmail")
-  public async getEmail(): Promise<any> {
+  @Post("/getEmail")
+  public async getEmail(@Body() user: {email: string, senha: string}): Promise<any> {
     try {
-      const data = await UsuarioModel.find({email: 'lucaspurkota@gmail.com'})
-      return data
+      const data = await UsuarioModel.find({email: user.email})
+      if(data != null){
+        if(data[0].senha == user.senha){
+          return data
+        }
+      }else{
+        return null
+      }
     } catch (error: any) {
       return {
         error: error.message,

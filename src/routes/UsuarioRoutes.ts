@@ -22,8 +22,8 @@ router.delete("/delete/:id", async (req: Request, res: Response) => {
   return res.status(response.error ? 400 : 200).send(response)
 })
 
-router.get("/getEmail", async (req: Request, res: Response) => {
-  const response = await controller.getEmail()
+router.post("/getEmail", async (req: Request, res: Response) => {
+  const response = await controller.getEmail(req.body)
 
   return res.status(response.error ? 400 : 200).send(response)
 })

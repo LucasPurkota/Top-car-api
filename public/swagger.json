@@ -172,7 +172,7 @@
 			}
 		},
 		"/api/usuario/getEmail": {
-			"get": {
+			"post": {
 				"operationId": "GetEmail",
 				"responses": {
 					"200": {
@@ -185,7 +185,29 @@
 					}
 				},
 				"security": [],
-				"parameters": []
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"senha": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"senha",
+									"email"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
 			}
 		},
 		"/api/venda/create": {
