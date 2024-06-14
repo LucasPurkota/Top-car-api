@@ -2,7 +2,8 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import usuarioRoutes from "./routes/usuarioRoutes"
+import usuarioRoutes from "./routes/UsuarioRoutes"
+import vendaRoutes from "./routes/VendaRoutes"
 
 import swaggerUi from "swagger-ui-express"
 import { connect } from "./service/database"
@@ -33,7 +34,8 @@ app.use(
   })
 )
 
-app.use("/api/usuario/", usuarioRoutes)
+app.use("/api/usuario", usuarioRoutes)
+app.use("/api/venda", vendaRoutes)
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
