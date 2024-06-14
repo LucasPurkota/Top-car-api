@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 import { UsuarioModel } from "./Usuario"
  
-const usuarioSchema = new mongoose.Schema({
+const vendaSchema = new mongoose.Schema({
   id: {
     require: true,
     type: String
@@ -33,10 +33,10 @@ const usuarioSchema = new mongoose.Schema({
   valor: {
     require: true,
     type: Number
-  },
-  vendedor: {
-    type: UsuarioModel
   }
+  // vendedor: {
+  //   type: mongoose.Schema.Types.ObjectId, ref: 'Usuario'
+  // }
 })
  
-export const VendaModel = mongoose.model("Venda", usuarioSchema)
+export const VendaModel = mongoose.model("Venda", vendaSchema)

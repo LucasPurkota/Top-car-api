@@ -1,6 +1,5 @@
 import express, { Request, Response } from "express"
 import UsuarioController from "../controllers/UsuarioController"
-import { UsuarioModel } from "../models/Usuario"
 
 const router = express.Router()
 const controller = new UsuarioController()
