@@ -209,6 +209,9 @@
 						"application/json": {
 							"schema": {
 								"properties": {
+									"vendedor": {
+										"type": "string"
+									},
 									"valor": {
 										"type": "number",
 										"format": "double"
@@ -234,6 +237,7 @@
 									}
 								},
 								"required": [
+									"vendedor",
 									"valor",
 									"detalhes",
 									"combustivel",
@@ -247,6 +251,101 @@
 						}
 					}
 				}
+			}
+		},
+		"/api/venda/update": {
+			"patch": {
+				"operationId": "Update",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"vendedor": {
+										"type": "string"
+									},
+									"valor": {
+										"type": "number",
+										"format": "double"
+									},
+									"detalhes": {
+										"type": "string"
+									},
+									"combustivel": {
+										"type": "string"
+									},
+									"km": {
+										"type": "number",
+										"format": "double"
+									},
+									"ano": {
+										"type": "string"
+									},
+									"modelo": {
+										"type": "string"
+									},
+									"marca": {
+										"type": "string"
+									},
+									"id": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"vendedor",
+									"valor",
+									"detalhes",
+									"combustivel",
+									"km",
+									"ano",
+									"modelo",
+									"marca",
+									"id"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/venda/delete/{id}": {
+			"delete": {
+				"operationId": "Delete",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
 			}
 		}
 	},

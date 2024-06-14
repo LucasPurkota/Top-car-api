@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express"
-import VendaController from "../controllers/vendaController"
+import VendaController from "../controllers/VendaController"
 
 const router = express.Router()
 const controller = new VendaController()

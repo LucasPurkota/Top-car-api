@@ -1,6 +1,6 @@
 import { Body, Delete, Patch, Post, Route } from "tsoa"
 import { UsuarioModel } from "../models/Usuario"
-import { VendaModel } from "../models/venda"
+import { VendaModel } from "../models/Venda"
 
 @Route("api/venda")
 export default class VendaController {
