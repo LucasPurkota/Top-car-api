@@ -33,10 +33,10 @@ const vendaSchema = new mongoose.Schema({
   valor: {
     require: true,
     type: Number
+  },
+  vendedor: {
+  type: mongoose.Schema.Types.ObjectId, ref: 'Usuario'
   }
-  // vendedor: {
-  //   type: mongoose.Schema.Types.ObjectId, ref: 'Usuario'
-  // }
 })
  
 export const VendaModel = mongoose.model("Venda", vendaSchema)
