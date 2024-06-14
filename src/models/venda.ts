@@ -1,11 +1,42 @@
 import mongoose from "mongoose"
+import { UsuarioModel } from "./Usuario"
  
-const icecreamSchema = new mongoose.Schema({
-  name: {
-    required: true,
-    type: String,
+const usuarioSchema = new mongoose.Schema({
+  id: {
+    require: true,
+    type: String
   },
+  marca: {
+    require: true,
+    type: String
+  },
+  modelo: {
+    require: true,
+    type: String
+  },
+  ano: {
+    require: true,
+    type: String
+  },
+  km: {
+    require: true,
+    type: Number
+  },
+  combustivel: {
+    require: true,
+    type: String
+  },
+  detalhes: {
+    require: true,
+    type: String
+  },
+  valor: {
+    require: true,
+    type: Number
+  },
+  vendedor: {
+    type: UsuarioModel
+  }
 })
  
-export const IcecreamModel = 
-      mongoose.model("Icecream", icecreamSchema)
+export const VendaModel = mongoose.model("Venda", usuarioSchema)
