@@ -1,4 +1,4 @@
-import { Body, Delete, Patch, Post, Route } from "tsoa"
+import { Body, Delete, Patch, Post, Get, Route } from "tsoa"
 import { UsuarioModel } from "../models/Usuario"
 import { VendaModel } from "../models/Venda"
 
@@ -51,6 +51,18 @@ export default class VendaController {
     try {
       const venda = await VendaModel.findByIdAndDelete(id)
       return { venda: venda }
+    } catch (error: any) {
+      return {
+        error: error.message,
+      }
+    }
+  }
+
+  @Get("/getAll")
+  public async all(): Promise<any> {
+    try {
+      const data = await VendaModel.find()
+      return data
     } catch (error: any) {
       return {
         error: error.message,
