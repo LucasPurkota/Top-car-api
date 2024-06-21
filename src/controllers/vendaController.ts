@@ -59,9 +59,21 @@ export default class VendaController {
   }
 
   @Get("/getAll")
-  public async all(): Promise<any> {
+  public async getAll(): Promise<any> {
     try {
       const data = await VendaModel.find()
+      return data
+    } catch (error: any) {
+      return {
+        error: error.message,
+      }
+    }
+  }
+
+  @Post("/getSaleUser")
+  public async getSaleUser(@Body() venda: {vendedor: string}): Promise<any> {
+    try {
+      const data = await VendaModel.find({vendedor: venda.vendedor})
       return data
     } catch (error: any) {
       return {

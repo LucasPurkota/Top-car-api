@@ -22,4 +22,16 @@ router.delete("/delete/:id", async (req: Request, res: Response) => {
   return res.status(response.error ? 400 : 200).send(response)
 })
 
+router.get("/getAll", async (req: Request, res: Response) => {
+  const response = await controller.getAll()
+
+  return res.status(response.error ? 400 : 200).send(response)
+})
+
+router.post("/getSaleUser", async (req: Request, res: Response) => {
+  const response = await controller.getSaleUser(req.body)
+
+  return res.status(response.error ? 400 : 200).send(response)
+})
+
 export default router

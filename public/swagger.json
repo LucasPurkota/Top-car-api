@@ -171,6 +171,23 @@
 				]
 			}
 		},
+		"/api/usuario/getAll": {
+			"get": {
+				"operationId": "GetAll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
 		"/api/usuario/getEmail": {
 			"post": {
 				"operationId": "GetEmail",
@@ -372,7 +389,7 @@
 		},
 		"/api/venda/getAll": {
 			"get": {
-				"operationId": "All",
+				"operationId": "GetAll",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -385,6 +402,41 @@
 				},
 				"security": [],
 				"parameters": []
+			}
+		},
+		"/api/venda/getSaleUser": {
+			"post": {
+				"operationId": "GetSaleUser",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"vendedor": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"vendedor"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
 			}
 		}
 	},

@@ -54,6 +54,18 @@ export default class UsuarioController {
     }
   }
 
+  @Get("/getAll")
+  public async getAll(): Promise<any> {
+    try {
+      const data = await UsuarioModel.find()
+      return data
+    } catch (error: any) {
+      return {
+        error: error.message,
+      }
+    }
+  }
+
   @Post("/getEmail")
   public async getEmail(@Body() user: {email: string, senha: string}): Promise<any> {
     try {
