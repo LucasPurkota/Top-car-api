@@ -6,7 +6,7 @@ import { VendaModel } from "../models/Venda"
 export default class VendaController {
   @Post("/create")
   public async create(@Body() body: {marca: string, modelo: string, ano: string, km: number, combustivel: string,
-    detalhes: string, valor: number, vendedor: string}): Promise<any> {
+    detalhes: string, valor: number, cidade:string, vendedor: string}): Promise<any> {
     const venda = new VendaModel({
       marca: body.marca,
       modelo: body.modelo,
@@ -15,6 +15,7 @@ export default class VendaController {
       combustivel: body.combustivel,
       detalhes: body.detalhes,
       valor: body.valor,
+      cidade: body.cidade,
       vendedor: body.vendedor
     })
     try {
@@ -27,7 +28,7 @@ export default class VendaController {
 
   @Patch("/update")
   public async update(@Body() body: { id: string, marca: string, modelo: string, ano: string, km: number, combustivel: string,
-    detalhes: string, valor: number, vendedor: string }): Promise<any> {
+    detalhes: string, valor: number, cidade:string, vendedor: string }): Promise<any> {
      try {
       const result = await VendaModel.findByIdAndUpdate(body.id, { 
         marca: body.marca,
@@ -37,6 +38,7 @@ export default class VendaController {
         combustivel: body.combustivel,
         detalhes: body.detalhes,
         valor: body.valor,
+        cidade: body.cidade,
         vendedor: body.vendedor
     })
       return { result: result }

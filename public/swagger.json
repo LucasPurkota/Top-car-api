@@ -251,6 +251,9 @@
 									"vendedor": {
 										"type": "string"
 									},
+									"cidade": {
+										"type": "string"
+									},
 									"valor": {
 										"type": "number",
 										"format": "double"
@@ -277,6 +280,7 @@
 								},
 								"required": [
 									"vendedor",
+									"cidade",
 									"valor",
 									"detalhes",
 									"combustivel",
@@ -316,6 +320,9 @@
 									"vendedor": {
 										"type": "string"
 									},
+									"cidade": {
+										"type": "string"
+									},
 									"valor": {
 										"type": "number",
 										"format": "double"
@@ -345,6 +352,7 @@
 								},
 								"required": [
 									"vendedor",
+									"cidade",
 									"valor",
 									"detalhes",
 									"combustivel",

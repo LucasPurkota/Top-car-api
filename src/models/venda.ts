@@ -34,6 +34,10 @@ const vendaSchema = new mongoose.Schema({
     require: true,
     type: Number
   },
+  cidade: {
+    require: true,
+    type: String
+  },
   vendedor: {
   type: mongoose.Schema.Types.ObjectId, ref: 'Usuario'
   }
