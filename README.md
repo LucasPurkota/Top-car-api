@@ -1,6 +1,6 @@
 # TopCar API
 
-TopCar API is a car e-commerce application developed in next.js.
+TopCar API is a car e-commerce application developed in express.
 
 ## Get Starting
 
